@@ -3,6 +3,7 @@ CSC102 2nd semester Java project
 
 Blackjack. Written lovingly by 4 first year CS students
 
+
 Still to do for alpha:
 - Implement a shuffle
 - Implement a Shannon Entropy calculation
