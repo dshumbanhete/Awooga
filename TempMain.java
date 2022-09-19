@@ -2,7 +2,7 @@ import javax.swing.JOptionPane;
 
 public class TempMain {
 	public static void main(String[] args) {
-		//JOptionPane.showMessageDialog(null, "Error, Nicky is too gay","GAY ERROR (error code: 6969)", 0);
+		//JOptionPane.showMessageDialog(null, "code: 6969)", 0);
 		Deck deck = new Deck(1);
 		System.out.println(deck.toString());
 		
