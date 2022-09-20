@@ -1,50 +1,34 @@
 import java.util.Arrays;
+import javax.swing.*;
 import java.util.Random;
 import java.util.Scanner;
 public class Blackjack_CSCtproj_v1 {
-	public static String[] draw;
-	public static int[] draw_p;
-	private static int winnings;
-	
+	private static String[] draw;
+	private static int[] draw_p;
+	private static String[][]players;
+	private int winnings;
+	private static int dealer=52;
+	private String[] player;
+	 private Blackjack_CSCtproj_v1(){
+		 this.winnings=0;
+		 this.player=new String[2];
+	 }
+	 
 public static void draw_card() {
 		draw_p=new int[32];
 		String[] cards= {"1","2","3","4","5","6","7","8","9","10","11"};
 		String[] suits= {"DCA","DCB","DCC","DCD"};
 		
+		//Blackjack_CSCtproj_v1(players[0][0],Integer.parseInt(players[1][0]));
 		for (int i = 0; i < draw.length-52; i++){
 			String card_final="";
 		Random random=new Random();
-		int ten_neg= random.nextInt(0,1);
 		int card_value=Integer.parseInt(cards[random.nextInt(0, 11)]);
-		
 		int suit=random.nextInt(0,4);
-		if (card_value==1) {
 			card_final+=suits[suit]+suit;
 			card_value-=1;
 			int c = Integer.parseInt(card_final,16);
 			card_final = "\uD83C" + (char) c;
-			
-		}else if(card_value==11) {
-			card_final=suits[suit]+suit;
-			card_value-=1;
-			int c = Integer.parseInt(card_final,16);
-			card_final = "\uD83C" + (char) c;
-		}
-		else if (card_value==10&ten_neg==0){
-			card_final+=suits[suit]+suit;
-			int c = Integer.parseInt(card_final,16);
-			card_final = "\uD83C" + (char) c;
-			
-		}else if (card_value==10&ten_neg==1) {
-			card_final+=suits[suit]+suit;
-			int c = Integer.parseInt(card_final,16);
-			card_final = "\uD83C" + (char) c;
-		
-		}else{
-			card_final+=suits[suit]+suit;
-			int c = Integer.parseInt(card_final,16);
-			card_final = "\uD83C" + (char) c;
-		}
 		
 		draw[i]=card_final;
 		draw[i+52]=""+(card_value+1);
@@ -55,6 +39,9 @@ public static void draw_card() {
 		//}while (shannon(draw_p)<3);
 	System.out.println(Arrays.toString(draw));
 	}	
+		
+		
+
 		//lets print out the draw just to be sure
 		
 
@@ -98,7 +85,8 @@ public static boolean compare_numb(int dl, int dl2, int hand, int hand2) {
 		isThing= false;
 	}else {
 		System.out.println("You have won this round");
-		setWinnings(getWinnings() + 1);
+		
+		Blackjack_CSCtproj_v1.setWinnings(0);
 		isThing=true;
 	}
 }
@@ -106,42 +94,41 @@ public static boolean compare_numb(int dl, int dl2, int hand, int hand2) {
 }
 public static void main(String[] args) {
 	draw=new String[104];
-	final Integer dealer=52;
-	final Integer player1=56;
-	final Integer player2=60;
-	final Integer player3=64;
-	final Integer player4=68;
 	Integer hand=2;
-	setWinnings(0);
-	
+	Blackjack_CSCtproj_v1 blackjack_CSCtproj_v1 = new Blackjack_CSCtproj_v1();
 	do {
 	draw_card();
 		System.out.println("The dealer has "+draw[dealer-52]+" and "+draw[dealer-51]);
 		System.out.println("Would you like to (d)raw or (f)old?");
 		Scanner in=new Scanner(System.in);
 		String us_in=in.next();
+		for (int i=1;i<5;i++) {
 		if (us_in.equals("d")){
-			if (compare_numb(Integer.parseInt(draw[dealer]),Integer.parseInt(draw[dealer+1]), Integer.parseInt(draw[player1]),Integer.parseInt(draw[player1+1]))==true) {
-				System.out.println("You have picked "+draw[player1-52]+" and "+draw[player1-51]);
-				setWinnings(getWinnings() + 1);
+			if (compare_numb(Integer.parseInt(draw[dealer]),Integer.parseInt(draw[dealer+1]), Integer.parseInt(draw[Integer.parseInt(blackjack_CSCtproj_v1.player[1])]),Integer.parseInt(draw[Integer.parseInt(blackjack_CSCtproj_v1.player[1])+1]))==true) {
+				System.out.println("You have picked "+draw[Integer.parseInt(blackjack_CSCtproj_v1.player[1])-dealer]+" and "+draw[Integer.parseInt(blackjack_CSCtproj_v1.player[1])-dealer]);
+				setWinnings(1);
 		}
 		else {
-			System.out.println("You have picked "+draw[player1-52]+" and "+draw[player1-51]);
+			System.out.println("You have picked "+draw[Integer.parseInt(blackjack_CSCtproj_v1.player[1])-dealer]+" and "+draw[Integer.parseInt(blackjack_CSCtproj_v1.player[1])-dealer]);
 			hand-=1;
 		}
 }
 		hand-=1;
-} while (hand>0);
+}} while (hand>0);
 	System.out.println("Game over!");
+
 }
 
 
-public static int getWinnings() {
-	return winnings;
+public int getWinnings() {
+	return this.winnings;
 }
 
-
+public void setPlayer(String c, int q) {
+	this.player[0]=c;
+	this.player[1]=""+q;
+}
 public static void setWinnings(int winnings) {
-	Blackjack_CSCtproj_v1.winnings = winnings;
+	winnings += winnings;
 }
 }
