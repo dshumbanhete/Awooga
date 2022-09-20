@@ -19,7 +19,7 @@ public static void draw_card() {
 		String[] cards= {"1","2","3","4","5","6","7","8","9","10","11"};
 		String[] suits= {"DCA","DCB","DCC","DCD"};
 		
-		//Blackjack_CSCtproj_v1(players[0][0],Integer.parseInt(players[1][0]));
+		//I use unicode for this version the suits can easily be mapped back to String, would need a toString method however to print the hands for each player
 		for (int i = 0; i < draw.length-52; i++){
 			String card_final="";
 		Random random=new Random();
@@ -32,17 +32,16 @@ public static void draw_card() {
 		
 		draw[i]=card_final;
 		draw[i+52]=""+(card_value+1);
+			//Once we have finished making our card instance, we then add it to the deck object, we could change this to be non-static by writting in a getter and a setter.
 		}
-		for (int rane=0;rane<draw_p.length;rane++) {
-			draw_p[rane]=Integer.parseInt(draw[rane+52]);
+		//storing the nominal card values in another object, draw_p which will be used to compute he shannon index. I use the original draw which is split 52-52 between the cards themselves and their nominal values. Keeping them in one deck object makes its slightly easier to compare the values for the game logic
+		for (int rane=52;rane<draw.length;rane++) {
+			draw_p[rane]=Integer.parseInt(draw[rane]);
 		}
 		//}while (shannon(draw_p)<3);
 	System.out.println(Arrays.toString(draw));
-	}	
-		
-		
-
-		//lets print out the draw just to be sure
+	}
+		//lets print out the draw to get a look at what our object contains
 		
 
 public static double entropy(double pi) {
@@ -52,7 +51,7 @@ public static double entropy(double pi) {
 public static double shannon(int[] rg) {
 	double ans=0;
 	double[] freq=new double[52];
-	for (int i=0; i<rg.length-1;i++) {
+	for (int i=0; i<rg.length;i++) {
 		int helper=rg[i+1]-rg[i];
 		if (helper<0) {
 			 helper+=52;
@@ -73,21 +72,22 @@ public static double shannon(int[] rg) {
 }
 
 public static boolean compare_numb(int dl, int dl2, int hand, int hand2) {
+	//This is the main logic of the game, I first see if the dealer has over 21
 	boolean isThing=true;
-	if ((hand+hand2)>21) {
-		System.out.println("You have Lost!");
-		isThing=false;
+	if ((dl+dl2)>21) {
+		System.out.println("You have Won!");
+		isThing=true;
+		Blackjack_CSCtproj_v1.setWinnings(1);
 	}else {
 		int dealers=dl+dl2;
 		int plars=hand+hand2;
-		if (plars<dealers) {
-		System.out.println("You have lost this round ");
-		isThing= false;
+		if (plars>dealers) {
+		System.out.println("You have won this round ");
+		isThing= true;
+		Blackjack_CSCtproj_v1.setWinnings(1);
 	}else {
 		System.out.println("You have won this round");
-		
-		Blackjack_CSCtproj_v1.setWinnings(0);
-		isThing=true;
+		isThing=false;
 	}
 }
 	return isThing;
