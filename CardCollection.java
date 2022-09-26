@@ -25,15 +25,18 @@ public class CardCollection {
 	}
 	
 	/** removeCard() removes the top Card from the CardCollection. It also returns the Card that it removed, therefore this method is used when dealing Cards from the deck to a Hand.*/
-	public Card removeCard() {
-		return this.cards.remove(0);
+	public Card removeCard(int index) {
+		return this.cards.remove(index);
 	}
 	
 	/** cardCount() returns the number of Cards in the CardCollection. It is used after every game cycle to ensure that the total amount of Cards in the game remains constant, as an error check. */
 	public int cardCount() {
 		return this.cards.size();
 	}
-	
+	public void setCard(Card card){
+		int roll=this.cards.indexOf(card);
+		this.cards.set(roll, card);
+	}
 	/** getCard() returns a Card at the given index. Used in conjuntion with cardCount() and Card.getValue() to calculate the total value of a Hand.*/
 	public Card getCard(int i) {
 		return this.cards.get(i);
