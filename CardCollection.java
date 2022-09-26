@@ -33,8 +33,8 @@ public class CardCollection {
 	public int cardCount() {
 		return this.cards.size();
 	}
-	public void setCard(Card card){
-		int roll=this.cards.indexOf(card);
+	/** setCard() is a void method that sets the cards in our array list at a specified index*/
+	public void setCard(int indx, Card card){
 		this.cards.set(roll, card);
 	}
 	/** getCard() returns a Card at the given index. Used in conjuntion with cardCount() and Card.getValue() to calculate the total value of a Hand.*/
