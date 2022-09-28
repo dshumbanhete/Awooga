@@ -39,6 +39,11 @@ public class CardCollection {
 		return this.cards.get(i);
 	}
 	
+	/** setCard() sets a Card in the cards ArrayList at a specified index*/
+	public void setCard(int indx, Card card){
+		this.cards.set(roll, card);
+	}
+	
 	/** getName() is an accessor method that returns the value of the name attribute of the given CardCollection instance */ 
 	public String getName() {
 		return this.name;
