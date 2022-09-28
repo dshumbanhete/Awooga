@@ -1,23 +1,39 @@
-import javax.swing.JOptionPane;
+//THIS WHOLE CLASS IS TEMPORARY AND FOR TESTING PURPOSES ONLY!!
 
 public class TempMain {
 	public static void main(String[] args) {
-		//JOptionPane.showMessageDialog(null, "code: 6969)", 0);
-		Deck deck = new Deck(1);
-		System.out.println(deck.toString());
+		//Deck deck = new Deck(1);
 		
+		//Dealer d = new Dealer();
 		Player p1 = new Player("Tessa");
-		System.out.println(p1.getHand().toString());
+		Player p2 = new Player("Dean");
+		Player p3 = new Player("Jameo");
+		Player p4 = new Player("Nicky");
+		
+		Player[] players = new Player[] {p1,p2,p3,p4};
+		Game game = new Game(4, 1, players);
+		game.setPlayers(players);
+		
+		System.out.println(deck.toString());
+		System.out.println(game.playersToString());
 		
 		System.out.println("\n\n");
 		
+/* 		deck.dealCard(d.getHand());
 		deck.dealCard(p1.getHand());
 		deck.dealCard(p1.getHand());
-		deck.dealCard(p1.getHand());
-		deck.dealCard(p1.getHand());
-		deck.dealCard(p1.getHand());
+		deck.dealCard(p2.getHand());
+		deck.dealCard(p2.getHand());
+		deck.dealCard(p3.getHand());
+		deck.dealCard(p3.getHand());
+		deck.dealCard(p4.getHand());
+		deck.dealCard(p4.getHand());
+		deck.dealCard(d.getHand()); */
+		
+		Game.firstDeal();
 		
 		System.out.println(deck.toString());
-		System.out.println(p1.getHand().toString());
+		System.out.println(game.playersToString());
+		
 	}
 }
