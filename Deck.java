@@ -1,11 +1,13 @@
 public class Deck extends CardCollection {
 	private int numDecks;
+  
 	/**A value constructor for our class*/
 	public Deck(int n) {
 		super("Deck");
 		this.numDecks = n;
 		populate();
 	}
+  
 	/**populate() is a method that constructs our deck from the card collection specified in the parent class*/
 	private void populate() {
 		for (int d = 0; d < numDecks; d++) { //d = deck
@@ -16,6 +18,7 @@ public class Deck extends CardCollection {
 			}
 		}	
 	}
+  
 	/**riffleshuffle() is a method that is used to shuffle our deck object to ensure that the card objects therein are randomised*/
 	public void riffleShuffle() {
 		int count=0;
