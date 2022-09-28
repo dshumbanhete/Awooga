@@ -41,7 +41,7 @@ public class CardCollection {
 	
 	/** setCard() sets a Card in the cards ArrayList at a specified index*/
 	public void setCard(int indx, Card card){
-		this.cards.set(roll, card);
+		this.cards.set(indx, card);
 	}
 	
 	/** getName() is an accessor method that returns the value of the name attribute of the given CardCollection instance */ 

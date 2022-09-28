@@ -22,26 +22,27 @@ public class Deck extends CardCollection {
 	/**riffleshuffle() is a method that is used to shuffle our deck object to ensure that the card objects therein are randomised*/
 	public void riffleShuffle() {
 		int count=0;
-		Card[] gill=new int[15];
-		Card[] fin=new int[15];
-		Card[] eye=new int[22];
+		Card[] gill=new Card[15];
+		Card[] fin=new Card[15];
+		Card[] eye=new Card[22];
 		for (int go=0; go<52; go++){
 			if (go<=14){
-				gill[go]=cards.getCard(go); //thank you for the getter Tess :}
+				gill[go]= super.getCard(go); //thank you for the getter Tess :}
 			}else if (go>29){
-				eye[go-29]=cards.getcard(go);
+				eye[go-29]= super.getCard(go);
 			}else{
-				fin[go-14]=cards.getCard(go);
+				fin[go-14]= super.getCard(go);
 			}
+		}
 		while(count<52){
 			if (count<15){
-				cards.set(count, gill[count]);
+				super.setCard(count, gill[count]);
 				count+=1;
 			}else if (count>36){
-				cards.set(count, eye[count-36]);
+				super.setCard(count, eye[count-36]);
 				count+=1;
 			}else{
-				cards.set(count, fin[count-15]);
+				super.setCard(count, fin[count-15]);
 			}
 		}
 	}

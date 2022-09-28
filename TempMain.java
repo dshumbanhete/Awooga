@@ -2,9 +2,6 @@
 
 public class TempMain {
 	public static void main(String[] args) {
-		//Deck deck = new Deck(1);
-		
-		//Dealer d = new Dealer();
 		Player p1 = new Player("Tessa");
 		Player p2 = new Player("Dean");
 		Player p3 = new Player("Jameo");
@@ -12,9 +9,8 @@ public class TempMain {
 		
 		Player[] players = new Player[] {p1,p2,p3,p4};
 		Game game = new Game(4, 1, players);
-		game.setPlayers(players);
 		
-		System.out.println(deck.toString());
+		//System.out.println(deck.toString());
 		System.out.println(game.playersToString());
 		
 		System.out.println("\n\n");
