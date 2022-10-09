@@ -16,7 +16,7 @@ public class Deck extends CardCollection {
 					addCard(new Card(r,s)); 
 				}
 			}
-		}	
+		}
 	}
   
 	/**riffleshuffle() is a method that is used to shuffle our deck object to ensure that the card objects therein are randomised*/
@@ -26,12 +26,12 @@ public class Deck extends CardCollection {
 		Card[] fin=new Card[15];
 		Card[] eye=new Card[22];
 		for (int go=0; go<52; go++){
-			if (go<=14){
+			if (go<15){
 				gill[go]= super.getCard(go); //thank you for the getter Tess :}
-			}else if (go>29){
-				eye[go-29]= super.getCard(go);
+			}else if (go>=30){
+				eye[go-30]= super.getCard(go);
 			}else{
-				fin[go-14]= super.getCard(go);
+				fin[go-15]= super.getCard(go);
 			}
 		}
 		while(count<52){
@@ -44,6 +44,17 @@ public class Deck extends CardCollection {
 			}else{
 				super.setCard(count, fin[count-15]);
 			}
+		}
+	}
+	
+	//* uses the Fisher-Yates algorithm to randomize the position of each Card in the Deck's cards list */
+	public void shuffle()
+	{
+		for (int i = super.getSize()-1; i > 0; i--) {
+			int randomIndex = (int)(Math.random()*i);
+			Card temp = super.getCard(i);
+			super.setCard(i, super.getCard(randomIndex));
+			super.setCard(randomIndex, temp);
 		}
 	}
 	

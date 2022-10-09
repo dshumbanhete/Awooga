@@ -18,12 +18,12 @@ public class CardCollection {
 		}
 		return out;
 	}
-	
+
 	/** addCard() takes a Card object as a parameter and adds it to the CardCollection */
 	public void addCard(Card card) {
 		this.cards.add(card);
 	}
-	
+
 	/** removeCard() removes the top Card from the CardCollection. It also returns the Card that it removed, therefore this method is used when dealing Cards from the deck to a Hand.*/
 	public Card removeCard() {
 		return this.cards.remove(0);
@@ -47,5 +47,9 @@ public class CardCollection {
 	/** getName() is an accessor method that returns the value of the name attribute of the given CardCollection instance */ 
 	public String getName() {
 		return this.name;
+	}
+	
+	public int getSize() {
+		return cards.size();
 	}
 }

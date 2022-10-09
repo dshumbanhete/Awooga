@@ -7,6 +7,7 @@
 	
 	public Game(int playerCnt, int numDecks, Player[] players) {
 		deck = new Deck(numDecks);
+		deck.shuffle();
 		dealer = new Dealer();
 		PLAYER_COUNT = playerCnt;
 		this.players = players;
@@ -25,7 +26,13 @@
 		String out = dealer.toString();
 		for (int i = 0; i < this.PLAYER_COUNT; i++) {
 			out += "\n" + this.players[i] ;
+			out += "\t= " + this.players[i].getHand().handValue();
 		}
 		return out;
+	}
+	
+	//* accessor method for deck attribute */
+	public Deck getDeck() {
+		return this.deck;
 	}
 }

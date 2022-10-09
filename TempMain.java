@@ -10,7 +10,7 @@ public class TempMain {
 		Player[] players = new Player[] {p1,p2,p3,p4};
 		Game game = new Game(4, 1, players);
 		
-		//System.out.println(deck.toString());
+		System.out.println(game.getDeck().toString());
 		System.out.println(game.playersToString());
 		
 		System.out.println("\n\n");
@@ -26,9 +26,9 @@ public class TempMain {
 		deck.dealCard(p4.getHand());
 		deck.dealCard(d.getHand()); */
 		
-		Game.firstDeal();
+		game.firstDeal();
 		
-		System.out.println(deck.toString());
+		System.out.println(game.getDeck().toString());
 		System.out.println(game.playersToString());
 		
 	}
