@@ -4,7 +4,6 @@ public class Game {
 	public final int PLAYER_COUNT; //unused as of now, will be important with GUI.
 	private Player[] players;
 	
-	
 	public Game(int numDecks, Player[] players) {
 		deck = new Deck(numDecks);
 		deck.shuffle();

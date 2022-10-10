@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.JOptionPane;
 
 public class GameUI extends javax.swing.JFrame {
 
@@ -18,15 +19,19 @@ public class GameUI extends javax.swing.JFrame {
         this.game = game;
         game.firstDeal();
         this.turn = 0;
-        this.setTitle(game.getPlayer(0).getName() + "'s Turn");
-
+        
+        refreshUI();
+    }
+    
+    public void refreshUI() {
+        this.setTitle(game.getPlayer(turn).getName() + "'s Turn");
+        
         lblDealerHand.setText(labelCards(game.getDealer()));
-        lblDealerScore.setText("Valued: ");
+        lblDealerScore.setText("Valued: " + game.getDealer().getHand().handValue());
         
-        lblPlayer.setText(game.getPlayer(0).getName() + "'s Hand");
-        lblPlayerHand.setText(labelCards(game.getPlayer(0)));
-        
-        
+        lblPlayer.setText(game.getPlayer(turn).getName() + "'s Hand");
+        lblPlayerHand.setText(labelCards(game.getPlayer(turn)));
+        lblPlayerScore.setText("Valued: " + game.getPlayer(turn).getHand().handValue());
     }
     
     public String labelCards(Player p) {
@@ -140,10 +145,12 @@ public class GameUI extends javax.swing.JFrame {
         lblPlayerHand.setText("??");
 
         lblDealerScore.setForeground(new java.awt.Color(255, 255, 255));
+        lblDealerScore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDealerScore.setText("Valued:");
 
         lblPlayerScore.setBackground(new java.awt.Color(255, 255, 255));
         lblPlayerScore.setForeground(new java.awt.Color(255, 255, 255));
+        lblPlayerScore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPlayerScore.setText("Valued: ");
 
         javax.swing.GroupLayout pnlBoardLayout = new javax.swing.GroupLayout(pnlBoard);
@@ -200,14 +207,22 @@ public class GameUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHitActionPerformed
-        Card test = new Card(3,2);
-        lblDealerHand.setFont(new Font("", 0, 100));
-        lblDealerHand.setText(test.toUnicodeString() + "?");
+        Player tempPlayer = game.getPlayer(turn);
+        Hand tempHand = tempPlayer.getHand();
+        game.getDeck().dealCard(tempHand);
         
+        
+        if (tempPlayer.checkBust()) {
+            refreshUI();
+            JOptionPane.showMessageDialog(pnlBoard, tempPlayer.getName().toUpperCase() + " BUSTED!!");
+            turn++;
+        }
+        refreshUI();
     }//GEN-LAST:event_btnHitActionPerformed
 
     private void btnStandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStandActionPerformed
-        // TODO add your handling code here:
+        turn = (turn + 1)%game.PLAYER_COUNT;
+        refreshUI();
     }//GEN-LAST:event_btnStandActionPerformed
 
     /**

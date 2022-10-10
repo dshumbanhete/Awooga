@@ -21,7 +21,16 @@ public class Player {
             return name;
         }
         
+        /** accessor for isBust attribute */
         public boolean isBust() {
             return isBust;
+        }
+        
+        /** combo getter and setter for isBust attribute */
+        public boolean checkBust() {
+            if (this.hand.handValue() > 21) {
+                this.isBust = true;
+            }
+            return this.isBust;
         }
 }
