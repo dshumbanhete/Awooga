@@ -1,2 +1,8 @@
 # Team Awooga - Blackjack
-CSC102 semester java project
+CSc102 Java Project
+
+By 
+  Nicholas Szczawinski
+  Theresa Rautenbach 
+  Dean Shumbanhete
+  Jameo Thompson
