@@ -2,7 +2,7 @@
 CSc102 Java Project
 
 By 
-  Nicholas Szczawinski
-  Theresa Rautenbach 
-  Dean Shumbanhete
-  Jameo Thompson
+  Nicholas Szczawinski  
+  Theresa Rautenbach  
+  Dean Shumbanhete  
+  Jameo Thompson  
