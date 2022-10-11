@@ -49,10 +49,12 @@ public class CardCollection {
 		return this.name;
 	}
 	
+        /** getSize() returns the size of the cards ArrayList, ie the number of cards in the given CardCollection instance */
 	public int getSize() {
 		return cards.size();
 	}
         
+        /** returns a String array with the each element containing the unicode character combination that represents the specific card. See Card.toUnicodeString() for details on how these are generated. */
         public String[] toUnicodeString() {
             String out[] = new String[cards.size()];
             for (int i = 0; i < cards.size(); i++) {

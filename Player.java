@@ -1,12 +1,10 @@
 public class Player {
 	private String name;
 	private Hand hand;
-        private boolean isBust;
 	
 	public Player(String name) {
             this.name = name;
             this.hand = new Hand(name + "'s hand");
-            this.isBust = false;
 	}
 	
 	public String toString() {
@@ -21,16 +19,11 @@ public class Player {
             return name;
         }
         
-        /** accessor for isBust attribute */
-        public boolean isBust() {
-            return isBust;
-        }
-        
-        /** combo getter and setter for isBust attribute */
-        public boolean checkBust() {
+        /** combo getter and setter for noPlay attribute, based on if the Player has busted */
+        public boolean checkBusted() {
             if (this.hand.handValue() > 21) {
-                this.isBust = true;
+                return true;
             }
-            return this.isBust;
+            return false;
         }
 }

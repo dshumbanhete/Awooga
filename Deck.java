@@ -19,7 +19,7 @@ public class Deck extends CardCollection {
 		}
 	}
   
-	/**riffleshuffle() is a method that is used to shuffle our deck object to ensure that the card objects therein are randomised*/
+	/** riffleshuffle() is a method that is used to shuffle our deck object to ensure that the card objects therein are randomised (unfinished and unused, but cool implementation and would be used if had more time */
 	public void riffleShuffle() {
 		int count=0;
 		Card[] gill=new Card[15];
@@ -47,7 +47,7 @@ public class Deck extends CardCollection {
 		}
 	}
 	
-	//* uses the Fisher-Yates algorithm to randomize the position of each Card in the Deck's cards list */
+	/** uses the Fisher-Yates algorithm to randomize the position of each Card in the Deck's cards list */
 	public void shuffle()
 	{
 		for (int i = super.getSize()-1; i > 0; i--) {
@@ -58,6 +58,7 @@ public class Deck extends CardCollection {
 		}
 	}
 	
+        /** deals the top card from the Deck to the parameterized Hand */
 	public void dealCard(CardCollection hand) {
 		hand.addCard(this.removeCard());
 	}
