@@ -1,7 +1,7 @@
 # Team Awooga - Blackjack
 CSc102 Java Project
 
-By 
+By  
   Nicholas Szczawinski  
   Theresa Rautenbach  
   Dean Shumbanhete  
