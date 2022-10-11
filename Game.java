@@ -34,60 +34,60 @@ public class Game {
 		return out;
 	}
         
-        /** accessor method for individual players */
-        public Player getPlayer(int idx) {
-            if (idx < players.length) {
-                return players[idx];
-            }
-            return null;
-        }
-        
-        /** accessor method for players array attribute (unused for now) */
-        public Player[] getPlayers() {
-            return players;
-        }
-        
-        /** accessor for dealer attribute */
-        public Dealer getDealer() {
-            return this.dealer;
-        }
+	/** accessor method for individual players */
+	public Player getPlayer(int idx) {
+		if (idx < players.length) {
+			return players[idx];
+		}
+		return null;
+	}
+	
+	/** accessor method for players array attribute (unused for now) */
+	public Player[] getPlayers() {
+		return players;
+	}
+	
+	/** accessor for dealer attribute */
+	public Dealer getDealer() {
+		return this.dealer;
+	}
 	
 	/** accessor method for deck attribute */
 	public Deck getDeck() {
 		return this.deck;
 	}
         
-        public void endGame(boolean dealerBust) {
-            String result = "END OF ROUND RESULTS:\n\n";
-            int dealerVal = dealer.getHand().handValue();
-            if (dealerBust) {
-                result += "THE DEALER BUSTED WITH " + dealerVal + "!!\n\n";
-                for (Player current : players) {
-                    if (current.checkBusted()) {
-                        result += current.getName() + " lost due to bust!!\n";
-                    } else {
-                        result += current.getName() + " wins by default!!\n";
-                    }
-                }
-            } else {
-                result += "The Dealer had " + dealerVal + "\n\n";
-                for (Player current : players) {
-                    int currVal = current.getHand().handValue();
-                    if (current.checkBusted()) {
-                        result += current.getName() + " busted with " + currVal + "!!\n";
-                    } else {
-                        int dealVal = dealer.getHand().handValue();
-                        if (currVal < dealVal) {
-                            result += current.getName() + " lost with " + currVal + "!!\n";
-                        } else if (currVal > dealVal) {
-                            result += current.getName() + " won with " + currVal + "!!\n";
-                        } else {
-                            result += current.getName() + " draws with the dealer!!\n";
-                        }
-                    }
-                }
-            }
-            
-            JOptionPane.showMessageDialog(null, result);
-        }
+	public void endGame(boolean dealerBust) {
+		String result = "END OF ROUND RESULTS:\n\n";
+		int dealerVal = dealer.getHand().handValue();
+		if (dealerBust) {
+			result += "THE DEALER BUSTED WITH " + dealerVal + "!!\n\n";
+			for (Player current : players) {
+				if (current.checkBusted()) {
+					result += current.getName() + " lost due to bust!!\n";
+				} else {
+					result += current.getName() + " wins by default!!\n";
+				}
+			}
+		} else {
+			result += "The Dealer had " + dealerVal + "\n\n";
+			for (Player current : players) {
+				int currVal = current.getHand().handValue();
+				if (current.checkBusted()) {
+					result += current.getName() + " busted with " + currVal + "!!\n";
+				} else {
+					int dealVal = dealer.getHand().handValue();
+					if (currVal < dealVal) {
+						result += current.getName() + " lost with " + currVal + "!!\n";
+					} else if (currVal > dealVal) {
+						result += current.getName() + " won with " + currVal + "!!\n";
+					} else {
+						result += current.getName() + " draws with the dealer!!\n";
+					}
+				}
+			}
+		}
+		
+		JOptionPane.showMessageDialog(null, result);
+	}
 }

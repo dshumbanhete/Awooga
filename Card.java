@@ -31,19 +31,19 @@ public class Card {
             return RANKS[this.RANK] + " of " + SUITS[this.SUIT];
 	} 
         
-        /** returns the UNICODE form of the current card. */
-        public String toUnicodeString() {
-            int fixedRank = RANK;
-            if (fixedRank > 11) { //This is because the UNICODE card characters have an extra card between Jack and Queen, for some reason.
-                fixedRank++;
-            }
-            return "\uD83C" + (char)(Integer.parseInt(("DC" + //unicode formatting for cards and conversion of card hexes (below) to decimal via Integer.parseInt
-					//Hex values for each card
-					Integer.toHexString(10 + SUIT).toUpperCase() + //governs the suit
-					Integer.toHexString(fixedRank).toUpperCase()) //governs the face value
-					,16)); //closure of Integer.parseInt call from above
-        }
-	
+	/** returns the UNICODE form of the current card. */
+	public String toUnicodeString() {
+		int fixedRank = RANK;
+		if (fixedRank > 11) { //This is because the UNICODE card characters have an extra card between Jack and Queen, for some reason.
+			fixedRank++;
+		}
+		return "\uD83C" + (char)(Integer.parseInt(("DC" + //unicode formatting for cards and conversion of card hexes (below) to decimal via Integer.parseInt
+				//Hex values for each card
+				Integer.toHexString(10 + SUIT).toUpperCase() + //governs the suit
+				Integer.toHexString(fixedRank).toUpperCase()) //governs the face value
+				,16)); //closure of Integer.parseInt call from above
+	}
+
 	/** getValue() returns the Blackjack card value (int). Returns 11 for Ace, as other Ace value (1) is handled in context of the game. */
 	public int getValue() {
 		if (this.RANK >= 10) {

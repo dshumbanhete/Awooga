@@ -44,35 +44,11 @@ public class MainMenuUI extends javax.swing.JFrame {
 
         lblPlayer1.setText("Player 1:");
 
-        txfPlayer1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txfPlayer1ActionPerformed(evt);
-            }
-        });
-
         lblPlayer2.setText("Player 2:");
-
-        txfPlayer2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txfPlayer2ActionPerformed(evt);
-            }
-        });
 
         lblPlayer3.setText("Player 3:");
 
-        txfPlayer3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txfPlayer3ActionPerformed(evt);
-            }
-        });
-
         lblPlayer4.setText("Player 4:");
-
-        txfPlayer4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txfPlayer4ActionPerformed(evt);
-            }
-        });
 
         lblNumDecks.setText("Number of Decks:");
 
@@ -170,22 +146,6 @@ public class MainMenuUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnStartActionPerformed
 
-    private void txfPlayer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfPlayer1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txfPlayer1ActionPerformed
-
-    private void txfPlayer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfPlayer2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txfPlayer2ActionPerformed
-
-    private void txfPlayer3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfPlayer3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txfPlayer3ActionPerformed
-
-    private void txfPlayer4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfPlayer4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txfPlayer4ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -221,7 +181,7 @@ public class MainMenuUI extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration
     private javax.swing.JButton btnStart;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblNumDecks;
@@ -235,5 +195,5 @@ public class MainMenuUI extends javax.swing.JFrame {
     private javax.swing.JTextField txfPlayer2;
     private javax.swing.JTextField txfPlayer3;
     private javax.swing.JTextField txfPlayer4;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration
 }

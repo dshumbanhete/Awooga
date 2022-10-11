@@ -24,12 +24,14 @@ public class CardCollection {
 		this.cards.add(card);
 	}
 
-	/** removeCard() removes the top Card from the CardCollection. It also returns the Card that it removed, therefore this method is used when dealing Cards from the deck to a Hand.*/
+	/** removeCard() removes the top Card from the CardCollection. It also returns the Card that it removed,
+		therefore this method is used when dealing Cards from the deck to a Hand.*/
 	public Card removeCard() {
 		return this.cards.remove(0);
 	}
 	
-	/** cardCount() returns the number of Cards in the CardCollection. It is used after every game cycle to ensure that the total amount of Cards in the game remains constant, as an error check. */
+	/** cardCount() returns the number of Cards in the CardCollection. It is used after every game cycle to ensure that the total amount of Cards in the game remains constant, 
+		as an error check. */
 	public int cardCount() {
 		return this.cards.size();
 	}
@@ -49,17 +51,18 @@ public class CardCollection {
 		return this.name;
 	}
 	
-        /** getSize() returns the size of the cards ArrayList, ie the number of cards in the given CardCollection instance */
+    /** getSize() returns the size of the cards ArrayList, ie the number of cards in the given CardCollection instance */
 	public int getSize() {
 		return cards.size();
 	}
         
-        /** returns a String array with the each element containing the unicode character combination that represents the specific card. See Card.toUnicodeString() for details on how these are generated. */
-        public String[] toUnicodeString() {
-            String out[] = new String[cards.size()];
-            for (int i = 0; i < cards.size(); i++) {
-                out[i] = cards.get(i).toUnicodeString();
-            }
-            return out;
-        }
+	/** returns a String array with the each element containing the unicode character combination that represents the specific card. 
+		See Card.toUnicodeString() for details on how these are generated. */
+	public String[] toUnicodeString() {
+		String out[] = new String[cards.size()];
+		for (int i = 0; i < cards.size(); i++) {
+			out[i] = cards.get(i).toUnicodeString();
+		}
+		return out;
+	}
 }
